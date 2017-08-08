@@ -20,9 +20,6 @@ records = [
     ('IBM', 50, 91.15)
 ]
 
-<<<<<<< HEAD
-print(compute_cost(records))
-=======
 StockFull = namedtuple('Stock', ['name', 'shares', 'price', 'date', 'time'])
 
 # Create a prototype instance
@@ -43,4 +40,3 @@ if __name__ == '__main__':
     b = {'name': 'ACME', 'shares': 100, 'price': 123.45, 'date': '12/17/2012'}
     print(dict_to_stock(b))
     print("最后要说的是，如果你的目标是定义一个需要更新很多实例属性的高效数据结构，那么命名元组并不是你的最佳选择。 这时候你应该考虑定义一个包含 __slots__ 方法的类（参考8.4小节）。")
->>>>>>> 171d85594813b31860a23f77a624d62fa52cbbb1
