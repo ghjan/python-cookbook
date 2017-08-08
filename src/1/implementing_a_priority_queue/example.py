@@ -4,6 +4,7 @@
 
 import heapq
 
+
 class PriorityQueue:
     def __init__(self):
         self._queue = []
@@ -16,20 +17,23 @@ class PriorityQueue:
     def pop(self):
         return heapq.heappop(self._queue)[-1]
 
+
 # Example use
 class Item:
     def __init__(self, name):
         self.name = name
+
     def __repr__(self):
         return 'Item({!r})'.format(self.name)
 
-q = PriorityQueue()
-q.push(Item('foo'), 1)
-q.push(Item('bar'), 5)
-q.push(Item('spam'), 4)
-q.push(Item('grok'), 1)
+if __name__ == '__main__':
+    q = PriorityQueue()
+    q.push(Item('foo'), 1)
+    q.push(Item('bar'), 5)
+    q.push(Item('spam'), 4)
+    q.push(Item('grok'), 1)
 
-print("Should be bar:", q.pop())
-print("Should be spam:", q.pop())
-print("Should be foo:", q.pop())
-print("Should be grok:", q.pop())
+    print("Should be bar:", q.pop())
+    print("Should be spam:", q.pop())
+    print("Should be foo:", q.pop())
+    print("Should be grok:", q.pop())

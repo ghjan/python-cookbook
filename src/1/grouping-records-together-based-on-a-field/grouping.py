@@ -11,23 +11,18 @@ rows = [
 
 from itertools import groupby
 
-rows.sort(key=lambda r: r['date'])
-for date, items in groupby(rows, key=lambda r: r['date']):
+rows.sort(key=lambda _: _['date'])
+for date, items in groupby(rows, key=lambda _: _['date']):
     print(date)
     for i in items:
         print('    ', i)
 
 # Example of building a multidict
 from collections import defaultdict
+
 rows_by_date = defaultdict(list)
 for row in rows:
     rows_by_date[row['date']].append(row)
-
+print("--------------")
 for r in rows_by_date['07/01/2012']:
     print(r)
-
-
-    
-
-
-
