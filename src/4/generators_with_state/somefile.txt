@@ -2,3 +2,6 @@ hello world
 this is a test
 of iterating over lines with a history
 python is fun
+yes you can
+celery is a distributed task queue
+python 3.6
