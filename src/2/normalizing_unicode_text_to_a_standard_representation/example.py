@@ -26,3 +26,15 @@ print(len(n_s1), len(n_s2))
 # (d) Example of normalizing to a decomposed form and stripping accents
 t1 = unicodedata.normalize('NFD', s1)
 print(''.join(c for c in t1 if not unicodedata.combining(c)))
+
+s = '\ufb01'  # A single character
+
+print(unicodedata.normalize('NFD', s))
+print(unicodedata.normalize('NFKD', s))
+print(unicodedata.normalize('NFKC', s))
+
+t1 = unicodedata.normalize('NFD', s1)
+# combining() 函数可以测试一个字符是否为和音字符
+print(''.join(c for c in t1 if not unicodedata.combining(c)))
+
+
