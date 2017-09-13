@@ -1,4 +1,9 @@
 # Example of managed attributes via properties
+'''
+一个描述器就是一个实现了三个核心的属性访问操作(get, set, delete)的类， 分别为 __get__() 、__set__() 和 __delete__()
+这三个特殊的方法。 这些方法接受一个实例作为输入，之后相应的操作实例底层的字典。
+'''
+
 
 class String:
     def __init__(self, name):

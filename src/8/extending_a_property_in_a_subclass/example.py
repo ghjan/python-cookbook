@@ -41,15 +41,15 @@ class SubPerson(Person):
 class SubPerson2(Person):
     @Person.name.setter
     def name(self, value):
-        print('Setting name to', value)
+        print('Setting name to(SubPerson2)', value)
         super(SubPerson2, SubPerson2).name.__set__(self, value)
 
 
 class SubPerson3(Person):
-    # @property
-    @Person.name.getter
+    @property
+    # @Person.name.getter
     def name(self):
-        print('Getting name')
+        print('Getting name(SubPerson3)')
         return super().name
 
 
@@ -67,4 +67,26 @@ if __name__ == '__main__':
     s = SubPerson('Guido')
     print(s.name)
     s.name = 'Larry'
-    s.name = 42
+    try:
+        s.name = 42
+    except TypeError as e:
+        print(e)
+    print("-----SubPerson2")
+    s = SubPerson2('Guido')
+    print(s.name)
+    s.name = 'Larry'
+    try:
+        s.name = 42
+    except TypeError as e:
+        print(e)
+    print("-----SubPerson3")
+    try:
+        s = SubPerson3('Guido')
+    except AttributeError as e:
+        print(e)
+    print(s.name)
+    s.name = 'Larry'
+    try:
+        s.name = 42
+    except TypeError as e:
+        print(e)

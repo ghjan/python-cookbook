@@ -17,12 +17,15 @@ class Integer:
     def __delete__(self, instance):
         del instance.__dict__[self.name]
 
+
 class Point:
     x = Integer('x')
     y = Integer('y')
+
     def __init__(self, x, y):
         self.x = x
         self.y = y
+
 
 if __name__ == '__main__':
     p = Point(2, 3)
