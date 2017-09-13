@@ -122,6 +122,14 @@ class ExpressionEvaluator:
             raise SyntaxError('Expected NUMBER or LPAREN')
 
 
+if __name__ == '__main__':
+    e = ExpressionEvaluator()
+    print(e.parse('2'))
+    print(e.parse('2 + 3'))
+    print(e.parse('2 + 3 * 4'))
+    print(e.parse('2 + (3 + 4) * 5'))
+
+
 # Example of building trees
 
 class ExpressionTreeBuilder(ExpressionEvaluator):
