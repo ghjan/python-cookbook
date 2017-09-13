@@ -20,21 +20,23 @@ class Person:
     def name(self):
         raise AttributeError("Can't delete attribute")
 
+
 class SubPerson(Person):
     @property
     def name(self):
-        print('Getting name')
+        print('Getting name(SubPerson)')
         return super().name
 
     @name.setter
     def name(self, value):
-        print('Setting name to', value)
+        print('Setting name to(SubPerson)', value)
         super(SubPerson, SubPerson).name.__set__(self, value)
 
     @name.deleter
     def name(self):
-        print('Deleting name')
+        print('Deleting name(SubPerson)')
         super(SubPerson, SubPerson).name.__delete__(self)
+
 
 class SubPerson2(Person):
     @Person.name.setter
@@ -42,19 +44,27 @@ class SubPerson2(Person):
         print('Setting name to', value)
         super(SubPerson2, SubPerson2).name.__set__(self, value)
 
+
 class SubPerson3(Person):
-    #@property
+    # @property
     @Person.name.getter
     def name(self):
         print('Getting name')
         return super().name
 
+
 if __name__ == '__main__':
-   a = Person('Guido')
-   print(a.name)
-   a.name = 'Dave'
-   print(a.name)
-   try:
-       a.name = 42
-   except TypeError as e:
-       print(e)
+    a = Person('Guido')
+    print(a.name)
+    a.name = 'Dave'
+    print(a.name)
+    try:
+        a.name = 42
+    except TypeError as e:
+        print(e)
+
+    print("-----SubPersion")
+    s = SubPerson('Guido')
+    print(s.name)
+    s.name = 'Larry'
+    s.name = 42

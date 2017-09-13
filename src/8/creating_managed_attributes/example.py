@@ -16,12 +16,23 @@ class Person:
             raise TypeError('Expected a string')
         self._first_name = value
 
+    # Deleter function (optional)
+    @first_name.deleter
+    def first_name(self):
+        raise AttributeError("Can't delete attribute")
+
+
 if __name__ == '__main__':
-   a = Person('Guido')
-   print(a.first_name)
-   a.first_name = 'Dave'
-   print(a.first_name)
-   try:
-       a.first_name = 42
-   except TypeError as e:
-       print(e)
+    a = Person('Guido')
+    print(a.first_name)
+    a.first_name = 'Dave'
+    print(a.first_name)
+    try:
+        a.first_name = 42
+    except TypeError as e:
+        print(e)
+    print("-----try to delete a property")
+    try:
+        del a.first_name
+    except AttributeError as e:
+        print(e)
