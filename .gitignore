@@ -6,6 +6,7 @@
 
 #idea
 .idea
+.idea/
 .idea/*.xml
 .vscode
 
