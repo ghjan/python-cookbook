@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
+
 from time import localtime
+
 
 class Date:
     def __init__(self, year, month, day):
@@ -16,14 +19,15 @@ class Date:
         d.day = t.tm_mday
         return d
 
+
 d = Date.__new__(Date)
 print(d)
-print(hasattr(d,'year'))
+print(hasattr(d, 'year'))
 
-data = { 
-    'year' : 2012,
-    'month' : 8,
-    'day' : 29
+data = {
+    'year': 2012,
+    'month': 8,
+    'day': 29
 }
 
 d.__dict__.update(data)
@@ -32,4 +36,3 @@ print(d.month)
 
 d = Date.today()
 print(d.year, d.month, d.day)
-

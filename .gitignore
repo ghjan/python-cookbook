@@ -4,8 +4,8 @@
 *$py.class
 *.pyc
 
-# idea
+#idea
 .idea
-.idea/*
+.idea/*.xml
 .vscode
 
