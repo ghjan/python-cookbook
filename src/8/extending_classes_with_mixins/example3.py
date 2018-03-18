@@ -22,9 +22,11 @@ def LoggedMapping(cls):
     cls.__delitem__ = __delitem__
     return cls
 
+
 @LoggedMapping
 class LoggedDict(dict):
     pass
+
 
 d = LoggedDict()
 d['x'] = 23

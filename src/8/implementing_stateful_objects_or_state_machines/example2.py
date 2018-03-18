@@ -18,6 +18,7 @@ class Connection:
     def close(self):
         return self._state.close(self)
 
+
 # Connection state base class
 class ConnectionState:
     @staticmethod
@@ -35,6 +36,7 @@ class ConnectionState:
     @staticmethod
     def close(conn):
         raise NotImplementedError()
+
 
 # Implementation of different states
 class ClosedConnectionState(ConnectionState):
@@ -54,6 +56,7 @@ class ClosedConnectionState(ConnectionState):
     def close(conn):
         raise RuntimeError('Already closed')
 
+
 class OpenConnectionState(ConnectionState):
     @staticmethod
     def read(conn):
@@ -70,6 +73,7 @@ class OpenConnectionState(ConnectionState):
     @staticmethod
     def close(conn):
         conn.new_state(ClosedConnectionState)
+
 
 # Example
 if __name__ == '__main__':

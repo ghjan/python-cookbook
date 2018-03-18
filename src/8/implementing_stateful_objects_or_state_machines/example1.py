@@ -17,6 +17,7 @@ class Connection:
     def close(self):
         raise NotImplementedError()
 
+
 class ClosedConnection(Connection):
     def read(self):
         raise RuntimeError('Not open')
@@ -30,6 +31,7 @@ class ClosedConnection(Connection):
     def close(self):
         raise RuntimeError('Already closed')
 
+
 class OpenConnection(Connection):
     def read(self):
         print('reading')
@@ -42,6 +44,7 @@ class OpenConnection(Connection):
 
     def close(self):
         self.new_state(ClosedConnection)
+
 
 # Example
 if __name__ == '__main__':

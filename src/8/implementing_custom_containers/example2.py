@@ -1,8 +1,9 @@
 import collections
 
+
 class Items(collections.MutableSequence):
     def __init__(self, initial=None):
-        self._items = list(initial) if initial is None else []
+        self._items = list(initial) if initial is not None else []
 
     # Required sequence methods
     def __getitem__(self, index):
@@ -25,10 +26,13 @@ class Items(collections.MutableSequence):
         print('Len')
         return len(self._items)
 
+
 if __name__ == '__main__':
     a = Items([1, 2, 3])
     print(len(a))
     a.append(4)
     a.append(2)
+    print("--------")
+    print(list(a))
     print(a.count(2))
     a.remove(3)

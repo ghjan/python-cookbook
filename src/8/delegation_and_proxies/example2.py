@@ -26,20 +26,25 @@ class Proxy:
             print('delattr:', name)
             delattr(self._obj, name)
 
+
 if __name__ == '__main__':
     class Spam:
         def __init__(self, x):
             self.x = x
+
         def bar(self, y):
             print('Spam.bar:', self.x, y)
+
 
     # Create an instance
     s = Spam(2)
 
     # Create a proxy around it
     p = Proxy(s)
-
+    print("---------")
     # Access the proxy
-    print(p.x)     # Outputs 2
-    p.bar(3)       # Outputs "Spam.bar: 2 3"
-    p.x = 37       # Changes s.x to 37
+    print(p.x)  # Outputs 2
+    print("---------")
+    p.bar(3)  # Outputs "Spam.bar: 2 3"
+    print("---------")
+    p.x = 37  # Changes s.x to 37
